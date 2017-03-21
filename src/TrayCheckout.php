@@ -338,6 +338,31 @@ class TrayCheckout {
         
     }
     
+    public function pagamentoAberto() {
+        $status = [
+            TrayCheckoutStatus::EMPROCESSAMENTO,
+            TrayCheckoutStatus::AGUARDANDOPAGAMENTO,
+            TrayCheckoutStatus::EMMONITORAMENTO,
+            TrayCheckoutStatus::EMRECUPERACAO
+        ];
+        
+        return in_array($this->retorno()->status(), $status);
+    }
+    
+    public function pagamentoEfetuado(){
+        return $this->retorno()->status() == TrayCheckoutStatus::APROVADA;
+    }
+    
+    public function pagamentoReprovado() {
+        $status = [
+            TrayCheckoutStatus::REPROVADA,
+            TrayCheckoutStatus::EMCONTESTACAO,
+            TrayCheckoutStatus::CANCELADA
+        ];
+        
+        return in_array($this->retorno()->status(), $status);
+    }
+    
     /**
      * Acessar os dados dos produtos
      * @return (TrayCheckoutProdutos)
