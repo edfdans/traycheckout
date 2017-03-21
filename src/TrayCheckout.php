@@ -117,8 +117,8 @@ class TrayCheckout {
         
         $dados['order_number'] = $this->geral()->pedido();
         $dados['free']         = $this->geral()->observacao();
-        $dados['payment[payment_method_id]'] = $this->pagamento;
-        $dados['payment[split]']             = $this->parcelas;
+        $dados['payment[payment_method_id]'] = $this->geral()->pagamento();
+        $dados['payment[split]']             = $this->geral()->parcelas();
         
         return $dados;
     }
