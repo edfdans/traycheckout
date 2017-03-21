@@ -13,15 +13,20 @@ class TrayCheckoutGeral {
      */
     private $ambiente = TrayCheckoutAmbiente::HOMOLOGACAO;
     /**
-     * Token para pagamento
-     * @var string
+     * Valor do desconto
+     * @var numeric
      */
-    private $token = '';
+    private $desconto = 0;
+    /**
+     * Valor do juros
+     * @var numeric
+     */
+    private $juros = 0;
     /**
      * Transação do pagamento
      * @var string
      */
-    private $transacao  = '';
+    private $transacao = '';
     /**
      * Quantidade de parcelas para pagamento
      * @var int
@@ -42,6 +47,11 @@ class TrayCheckoutGeral {
      * @var TrayCheckoutClienteFormaPagamento
      */
     private $pagamento;
+    /**
+     * Token para pagamento
+     * @var string
+     */
+    private $token = '';
     
     /**
      * Atribui e retorna o ambiente do sistema de pagamento
@@ -61,6 +71,38 @@ class TrayCheckoutGeral {
             
         } else {
             return $this->ambiente;
+        }
+        
+    }
+    
+    /**
+     * Atribui e retorna o valor do desconto
+     * 
+     * @param numeric $valor [opcional]
+     * @return (numeric)
+     */
+    public function desconto($valor = null) {
+        
+        if (!is_null($valor)) {
+            $this->desconto = $valor;
+        } else {
+            return $this->desconto;
+        }
+        
+    }
+    
+    /**
+     * Atribui e retorna o valor do juros
+     * 
+     * @param numeric $valor [opcional]
+     * @return (numeric)
+     */
+    public function juros($valor = null) {
+        
+        if (!is_null($valor)) {
+            $this->juros = $valor;
+        } else {
+            return $this->juros;
         }
         
     }
