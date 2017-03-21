@@ -1,0 +1,25 @@
+{
+    "name": "edfdans/traycheckout",
+    "type": "library",
+    "description": "Esse pacote irá ajudar no envio de pagamentos e consultas no TrayCheckout",
+    "keywords": [
+        "pagamento",
+        "boleto",
+        "traycheckout"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Emerson Diego Feltrin",
+            "email": "emersondiegofeltrin@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "edfdans\\traycheckout\\": "src/"
+        }
+    }
+}
