@@ -117,10 +117,11 @@ class TrayCheckout {
         
         $dados['order_number'] = $this->geral()->pedido();
         $dados['free']         = $this->geral()->observacao();
-        $dados['payment[payment_method_id]']    = $this->geral()->pagamento();
-        $dados['payment[split]']                = $this->geral()->parcelas();
-        $dados['transaction[price_discount]']   = $this->geral()->desconto();
-        $dados['transaction[price_additional]'] = $this->geral()->juros();
+        $dados['payment[payment_method_id]']      = $this->geral()->pagamento();
+        $dados['payment[split]']                  = $this->geral()->parcelas();
+        $dados['payment[billet_date_expiration]'] = $this->geral()->dataVencimento();
+        $dados['transaction[price_discount]']     = $this->geral()->desconto();
+        $dados['transaction[price_additional]']   = $this->geral()->juros();
         
         return $dados;
     }

@@ -13,6 +13,11 @@ class TrayCheckoutGeral {
      */
     private $ambiente = TrayCheckoutAmbiente::HOMOLOGACAO;
     /**
+     * Data de vencimento boleto
+     * @var date
+     */
+    private $dataVencimento;
+    /**
      * Valor do desconto
      * @var numeric
      */
@@ -71,6 +76,31 @@ class TrayCheckoutGeral {
             
         } else {
             return $this->ambiente;
+        }
+        
+    }
+    
+    /**
+     * Atribui e retorna a data de vencimento
+     * 
+     * @param date $valor [opcional]
+     * 
+     * Formato dd/mm/yyyy Ex: date('d/m/y')
+     * 
+     * @return (date)
+     */
+    public function dataVencimento($valor = null) {
+
+        if (!is_null($valor)) {
+            
+            if (preg_match('/^([0-2]{1}[0-9]{1}|3[0-1]{1})\/(0[1-9]{1}|1[0-2]{1})\/[0-9]{4}$/', $valor)) {
+                $this->dataVencimento = $valor;
+            } else {
+                throw new Exception('Data de vencimento inválida!');
+            }
+            
+        } else {
+            return $this->dataVencimento;
         }
         
     }
