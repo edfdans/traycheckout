@@ -28,6 +28,10 @@ if ($tc->consultarPagamento()){
 $tc = new TrayCheckout();
 $tc->geral()->ambiente(TrayCheckoutAmbiente::HOMOLOGACAO);
 $tc->geral()->token(''); 
+
+$tc->geral()->desconto(0);
+$tc->geral()->dataVencimento(date('d/m/Y'));
+
 $tc->cliente()->nome('Cliente de teste');
 $tc->cliente()->cpf('000.000.000-00');
 $tc->cliente()->email('email@empresa.com.br');
