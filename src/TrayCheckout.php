@@ -174,6 +174,30 @@ class TrayCheckout {
         
         curl_close($ch);
         
+        if ($this->geral()->ambiente() == TrayCheckoutAmbiente::PRODUCAO) {
+            
+            $html = explode('window.location = "', $pdf);
+            
+            if (count($html) >= 2) {
+                
+                $link = explode('"', $html[1])[0];
+                
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $link);
+                curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; rv:8.0) Gecko/20100101 Firefox/8.0');
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+
+                $pdf = curl_exec($ch);
+
+                curl_close($ch);
+                
+            }
+            
+        }
+        
         if (!is_null($destino)) {
             file_put_contents($destino, $pdf);
         }
