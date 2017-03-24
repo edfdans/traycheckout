@@ -36,6 +36,11 @@ class TrayCheckoutRetorno {
      */
     private $url = '';
     /**
+     * Linha digitável boleto
+     * @var string
+     */
+    private $linhaDigitavel = '';
+    /**
      * Lista de erros
      * @var array
      */
@@ -117,6 +122,22 @@ class TrayCheckoutRetorno {
             $this->url = $valor;
         } else {
             return $this->url;
+        }
+        
+    }
+    
+    /**
+     * Atribui e retorna a linha digitável para pagamento do boleto
+     * 
+     * @param string $valor [opcional]
+     * @return (string)
+     */
+    public function linhaDigitavel($valor = null) {
+        
+        if (!is_null($valor)) {
+            $this->linhaDigitavel = $valor;
+        } else {
+            return $this->linhaDigitavel;
         }
         
     }

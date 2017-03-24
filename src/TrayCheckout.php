@@ -319,6 +319,7 @@ class TrayCheckout {
                     $this->retorno()->transacao((string)$resposta->data_response->transaction->transaction_id);
                     $this->retorno()->token((string)$resposta->data_response->transaction->token_transaction);
                     $this->retorno()->url((string)$resposta->data_response->transaction->payment->url_payment);
+                    $this->retorno()->linhaDigitavel((string)$resposta->data_response->transaction->payment->linha_digitavel);
 
                 } else {
 
