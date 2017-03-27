@@ -41,6 +41,11 @@ class TrayCheckoutRetorno {
      */
     private $linhaDigitavel = '';
     /**
+     * XML do retorno
+     * @var string
+     */
+    private $xml = '';
+    /**
      * Lista de erros
      * @var array
      */
@@ -138,6 +143,22 @@ class TrayCheckoutRetorno {
             $this->linhaDigitavel = $valor;
         } else {
             return $this->linhaDigitavel;
+        }
+        
+    }
+    
+    /**
+     * Atribui e retorna o xml do retorno
+     * 
+     * @param string $valor [opcional]
+     * @return (string)
+     */
+    public function xml($valor = null) {
+        
+        if (!is_null($valor)) {
+            $this->xml = $valor;
+        } else {
+            return $this->xml;
         }
         
     }

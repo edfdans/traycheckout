@@ -23,10 +23,10 @@ class TrayCheckoutGeral {
      */
     private $desconto = 0;
     /**
-     * Valor do juros
+     * Valor do acrescimo
      * @var numeric
      */
-    private $juros = 0;
+    private $acrescimo = 0;
     /**
      * Transação do pagamento
      * @var string
@@ -122,17 +122,17 @@ class TrayCheckoutGeral {
     }
     
     /**
-     * Atribui e retorna o valor do juros
+     * Atribui e retorna o valor do acréscimo
      * 
      * @param numeric $valor [opcional]
      * @return (numeric)
      */
-    public function juros($valor = null) {
+    public function acrescimo($valor = null) {
         
         if (!is_null($valor)) {
-            $this->juros = $valor;
+            $this->acrescimo = $valor;
         } else {
-            return $this->juros;
+            return $this->acrescimo;
         }
         
     }

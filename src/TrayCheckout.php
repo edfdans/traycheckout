@@ -121,7 +121,7 @@ class TrayCheckout {
         $dados['payment[split]']                  = $this->geral()->parcelas();
         $dados['payment[billet_date_expiration]'] = $this->geral()->dataVencimento();
         $dados['transaction[price_discount]']     = $this->geral()->desconto();
-        $dados['transaction[price_additional]']   = $this->geral()->juros();
+        $dados['transaction[price_additional]']   = $this->geral()->acrescimo();
         
         return $dados;
     }
@@ -244,6 +244,7 @@ class TrayCheckout {
             $xml  = curl_exec($ch);
             $erro = curl_error($ch);
             $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $this->retorno()->xml($xml);
 
             curl_close($ch);
             
@@ -306,6 +307,7 @@ class TrayCheckout {
             $xml  = curl_exec($ch);
             $erro = curl_error($ch);
             $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $this->retorno()->xml($xml);
 
             curl_close($ch);
             
