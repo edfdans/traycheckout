@@ -30,7 +30,9 @@ $tc->geral()->ambiente(TrayCheckoutAmbiente::HOMOLOGACAO);
 $tc->geral()->token(''); 
 
 $tc->geral()->desconto(0);
+$tc->geral()->acrescimo(0);
 $tc->geral()->dataVencimento(date('d/m/Y'));
+$tc->geral()->observacao('Observação da fatura');
 
 $tc->cliente()->nome('Cliente de teste');
 $tc->cliente()->cpf('000.000.000-00');
@@ -40,7 +42,7 @@ $tc->cliente()->razaoSocial('Empresa Ltda');
 $tc->cliente()->cnpj('00.000.000/0000-00');
 
 $tc->cliente()->contatos()->adicionar(TrayCheckoutClienteContatoTipo::COMERCIAL, '(00) 00000000');
-$tc->cliente()->enderecos()->adicionar(TrayCheckoutClienteEnderecoTipo::COBRANCA, 'Rua XY de Novembro', '100', '', 'Centro', 'Cidade', 'UF', '99999-999');
+$tc->cliente()->enderecos()->adicionar(TrayCheckoutClienteEnderecoTipo::COBRANCA, 'Rua XV de Novembro', '100', '', 'Centro', 'Cidade', 'UF', '99999-999');
 
 $tc->produtos()->adicionar('1', 'Produto 1', 10, 1, 'Observação do produto');
 
