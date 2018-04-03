@@ -3,8 +3,7 @@
 
 Esse pacote irá permitir o envio e consulta de pagamentos da Traycheckout.
 
-### ATENÇÃO! ESSE PACOTE FOI DESCONTINUADO
-### UTILIZE O PACOTE DA YAPAY [yapay](https://github.com/emersondiegofeltrin/yapay)
+# ATENÇÃO! ESSE PACOTE FOI DESCONTINUADO, UTILIZE O PACOTE DA YAPAY [yapay](https://github.com/emersondiegofeltrin/yapay)
 
 ### SOMENTE GERAÇÃO DE BOLETO
 
